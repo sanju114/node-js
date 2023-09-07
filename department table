@@ -1,0 +1,28 @@
+CREATE TABLE department (
+    user_name VARCHAR(255),
+    department_name VARCHAR(255),
+    PRIMARY KEY (user_name, department_name)
+);
+
+INSERT INTO department (user_name, department_name) 
+values ('User 1', 'CS'),
+    ('User 1', 'Electrical'),
+    ('User 2', 'CS'),
+    ('User 1', 'Infra'),
+    ('User 2','Electrical'),
+    ('User 4','CS'),
+    ('User 3','CS'),
+    ('User 2','Infra')
+;
+
+SELECT department_name, COUNT(user_name) AS total_users
+FROM department
+GROUP BY department_name;
+
+
+select user_name, count( department_name) AS total_departments
+    FROM department GROUP BY user_name;
+
+select * from department;
+
+drop table DEPARTMENT;
