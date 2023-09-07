@@ -1,0 +1,39 @@
+CREATE TABLE users(
+	id serial PRIMARY KEY,
+	first_name varchar(255),
+	last_name varchar(255),
+	gender boolean,
+	ctime Timestamp 
+	);
+
+
+INSERT INTO users(
+    id,
+    first_name,
+    last_name,
+    gender,
+    ctime
+    )
+values(1,'Ronit','Deo',true,current_timestamp),
+      (2,'Jia','Mathive',true,current_timestamp),
+	  (3,'JOy','Gilbert',true,current_timestamp);
+	 
+	
+	alter table users
+	add column address jsonb;
+
+update users set address ='{"street-addr":"124 DP Road","zip-code":"411001"}'::jsonb 
+where id=1
+
+
+
+	 select*from users
+	order by id asc;
+
+
+	drop table users ;
+
+SELECT address->>'street-addr' AS street_address, 
+                       address->>'zip-code' AS zip_code
+                       FROM Users
+                       WHERE id = 1;
